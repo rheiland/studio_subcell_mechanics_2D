@@ -1,16 +1,14 @@
-# pc4learning
+# studio_subcell_mechanics_2D
 
-GUI to explore one of several PhysiCell sample models.
+Studio GUI to explore test case of PhysiCell subcell mechanics  (using y=0 as the "membrane")
 
-Compile (all provided sample models), copy the executable(s) you want to run to the root directory, run the GUI:
+Compile the C++ model:
 ```
-cd pc4learning/src
+cd src
 make
 
-# copy whichever ones you want to test
-cp biorobots ..
-cp celltypes ..
-cp pred_prey ..
+# copy the executable to where the Studio wants it:
+cp myproj ..
 
 # Change directory to the root dir and run the GUI from there
 cd ..
