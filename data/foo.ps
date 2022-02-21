@@ -1,0 +1,726 @@
+%!PS-Adobe-
+%%DocumentFonts: Courier Courier-Bold
+% PSP prologue file, version 1.0
+%
+% Copyright (c) 1989 Eric J. Kostelich
+%
+save
+/PSPstart {} def
+/p {	3 1 roll
+	Linespacing mul Textoffset exch sub
+	exch Textwidth Leftmargin add mul Leftmargin add
+	exch moveto show 
+} def
+
+/Setbold { /Courier-Bold findfont Boldsize scalefont setfont } def
+/SF { /Courier findfont Pointsize scalefont setfont } def
+%
+% (string) H  - for placing boldface titles
+%
+/H { Setbold Leftmargin Titleoffset moveto show SF } def
+%
+%  Normal mode - use titles, 54 lines/page
+%
+/Usual {/Leftmargin 66 def  /Textoffset 708 def /Titleoffset 738 def
+	/Boldsize 12 def  /Pointsize 10 def /Linespacing 12 def
+	/Textwidth 480 def /Rotatemode false def
+} def
+%
+%  Plain mode - no titles, 66 lines/page
+%
+/Plain {/Leftmargin 72 def  /Textoffset 756 def
+	/Boldsize 14 def  /Pointsize 9 def /Linespacing 11 def
+	/Textwidth 480 def /Rotatemode false def
+} def
+%
+% Rotated, two-column mode - 65 lines/column
+%
+/Rotated { /Rotatemode true def } def
+/Rotatepage { 612 0 translate 90 rotate
+	/Leftmargin 36 def /Textoffset 550 def /Titleoffset 568 def
+	/Boldsize 12 def  /Pointsize 7 def  /Linespacing 8 def
+	/Textwidth 336 def
+} def
+/Startpage { Rotatemode {Rotatepage} if SF } def
+/Endpage {showpage} def
+/PSPend {restore} def
+%%EndPrologue
+Rotated
+%%Page 1 1
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       1)H
+0 0(<?xml version="1.0" encoding="UTF-8"?>)p
+0 1(<PhysiCell_settings version="devel-version">)p
+0 2(<domain>)p
+0 3(    <x_min>-500</x_min>)p
+0 4(    <x_max>500</x_max>)p
+0 5(    <y_min>-500</y_min>)p
+0 6(    <y_max>500</y_max>)p
+0 7(    <z_min>-10</z_min>)p
+0 8(    <z_max>10</z_max>)p
+0 9(    <dx>20</dx>)p
+0 10(    <dy>20</dy>)p
+0 11(    <dz>20</dz>)p
+0 12(    <use_2D>true</use_2D>)p
+0 13(</domain>)p
+0 15(<overall>)p
+0 16(    <max_time units="min">7200</max_time> <!-- 5 days * 24 h * 60 min -->)p
+0 17(    <time_units>min</time_units>)p
+0 18(    <space_units>micron</space_units>)p
+0 20(    <dt_diffusion units="min">0.01</dt_diffusion>)p
+0 21(    <dt_mechanics units="min">0.1</dt_mechanics>)p
+0 22(    <dt_phenotype units="min">6</dt_phenotype>)p
+0 23(</overall>)p
+0 25(<parallel>)p
+0 26(    <omp_num_threads>4</omp_num_threads>)p
+0 27(</parallel>)p
+0 29(<save>)p
+0 30(    <folder>output</folder> <!-- use . for root -->)p
+0 32(    <full_data>)p
+0 33(        <interval units="min">60</interval>)p
+0 34(        <enable>true</enable>)p
+0 35(    </full_data>)p
+0 37(    <SVG>)p
+0 38(        <interval units="min">30</interval>)p
+0 39(        <enable>true</enable>)p
+0 40(    </SVG>)p
+0 42(    <legacy_data>)p
+0 43(        <enable>false</enable>)p
+0 44(    </legacy_data>)p
+0 45(</save>)p
+0 47(<options>)p
+0 48(    <legacy_random_points_on_sphere_in_divide>false</legacy_random_points_on_sph)p
+0 49(ere_in_divide>)p
+0 50(</options>)p
+0 52(<microenvironment_setup>)p
+0 53(    <variable name="resource" units="none" ID="0">)p
+0 54(        <physical_parameter_set>)p
+0 55(            <diffusion_coefficient units="micron^2/min">100000.0</diffusion_coef)p
+0 56(ficient>)p
+0 57(            <decay_rate units="1/min">0</decay_rate>  <!-- 0.1 -->)p
+0 58(        </physical_parameter_set>)p
+0 59(        <initial_condition units="none">1</initial_condition>)p
+0 60(        <Dirichlet_boundary_condition units="none" enabled="true">1</Dirichlet_b)p
+0 61(oundary_condition>)p
+0 62(<!-- use this block to set Dirichlet boundary conditions on individual boundarie)p
+0 63(s -->)p
+0 64(<!--)p
+1 0(        <Dirichlet_options>)p
+1 1(            <boundary_value ID="xmin" enabled="false">0</boundary_value>)p
+1 2(            <boundary_value ID="xmax" enabled="false">0</boundary_value>)p
+1 3(            <boundary_value ID="ymin" enabled="false">0</boundary_value>)p
+1 4(            <boundary_value ID="ymax" enabled="false">0</boundary_value>)p
+1 5(            <boundary_value ID="zmin" enabled="false">1</boundary_value>)p
+1 6(            <boundary_value ID="zmax" enabled="false">0</boundary_value>)p
+1 7(        </Dirichlet_options>)p
+1 8(-->)p
+1 9(    </variable>)p
+1 11(    <variable name="signal A" units="none" ID="1">)p
+1 12(        <physical_parameter_set>)p
+1 13(            <diffusion_coefficient units="micron^2/min">1000.0</diffusion_coeffi)p
+1 14(cient>)p
+1 15(            <decay_rate units="1/min">0.1</decay_rate>)p
+1 16(        </physical_parameter_set>)p
+1 17(        <initial_condition units="none">0</initial_condition>)p
+1 18(        <Dirichlet_boundary_condition units="none" enabled="true">0</Dirichlet_b)p
+1 19(oundary_condition>)p
+1 20(<!-- use this block to set Dirichlet boundary conditions on individual boundarie)p
+1 21(s -->)p
+1 22(<!--)p
+1 23(        <Dirichlet_options>)p
+1 24(            <boundary_value ID="xmin" enabled="false">0</boundary_value>)p
+1 25(            <boundary_value ID="xmax" enabled="false">0</boundary_value>)p
+1 26(            <boundary_value ID="ymin" enabled="false">0</boundary_value>)p
+1 27(            <boundary_value ID="ymax" enabled="false">0</boundary_value>)p
+1 28(            <boundary_value ID="zmin" enabled="false">1</boundary_value>)p
+1 29(            <boundary_value ID="zmax" enabled="false">0</boundary_value>)p
+1 30(        </Dirichlet_options>)p
+1 31(-->)p
+1 32(    </variable>)p
+1 34(    <variable name="signal B" units="none" ID="2">)p
+1 35(        <physical_parameter_set>)p
+1 36(            <diffusion_coefficient units="micron^2/min">1000.0</diffusion_coeffi)p
+1 37(cient>)p
+1 38(            <decay_rate units="1/min">.1</decay_rate>)p
+1 39(        </physical_parameter_set>)p
+1 40(        <initial_condition units="none">0</initial_condition>)p
+1 41(        <Dirichlet_boundary_condition units="none" enabled="true">0</Dirichlet_b)p
+1 42(oundary_condition>)p
+1 43(<!-- use this block to set Dirichlet boundary conditions on individual boundarie)p
+1 44(s -->)p
+1 45(<!--)p
+1 46(        <Dirichlet_options>)p
+1 47(            <boundary_value ID="xmin" enabled="false">0</boundary_value>)p
+1 48(            <boundary_value ID="xmax" enabled="false">0</boundary_value>)p
+1 49(            <boundary_value ID="ymin" enabled="false">0</boundary_value>)p
+1 50(            <boundary_value ID="ymax" enabled="false">0</boundary_value>)p
+1 51(            <boundary_value ID="zmin" enabled="false">1</boundary_value>)p
+1 52(            <boundary_value ID="zmax" enabled="false">0</boundary_value>)p
+1 53(        </Dirichlet_options>)p
+1 54(-->)p
+1 55(    </variable>)p
+1 57(    <variable name="signal C" units="none" ID="2">)p
+1 58(        <physical_parameter_set>)p
+1 59(            <diffusion_coefficient units="micron^2/min">1000.0</diffusion_coeffi)p
+1 60(cient>)p
+1 61(            <decay_rate units="1/min">.1</decay_rate>)p
+1 62(        </physical_parameter_set>)p
+1 63(        <initial_condition units="none">0</initial_condition>)p
+1 64(        <Dirichlet_boundary_condition units="none" enabled="true">0</Dirichlet_b)p
+Endpage
+%%Page 3 2
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       2)H
+0 0(oundary_condition>)p
+0 1(<!-- use this block to set Dirichlet boundary conditions on individual boundarie)p
+0 2(s -->)p
+0 3(<!--)p
+0 4(        <Dirichlet_options>)p
+0 5(            <boundary_value ID="xmin" enabled="false">0</boundary_value>)p
+0 6(            <boundary_value ID="xmax" enabled="false">0</boundary_value>)p
+0 7(            <boundary_value ID="ymin" enabled="false">0</boundary_value>)p
+0 8(            <boundary_value ID="ymax" enabled="false">0</boundary_value>)p
+0 9(            <boundary_value ID="zmin" enabled="false">1</boundary_value>)p
+0 10(            <boundary_value ID="zmax" enabled="false">0</boundary_value>)p
+0 11(        </Dirichlet_options>)p
+0 12(-->)p
+0 13(    </variable>)p
+0 15(    <options>)p
+0 16(        <calculate_gradients>true</calculate_gradients>)p
+0 17(        <track_internalized_substrates_in_each_agent>true</track_internalized_su)p
+0 18(bstrates_in_each_agent>)p
+0 19(        <!-- not yet supported -->)p
+0 20(        <initial_condition type="matlab" enabled="false">)p
+0 21(            <filename>./config/initial.mat</filename>)p
+0 22(        </initial_condition>)p
+0 23(        <!-- not yet supported -->)p
+0 24(        <dirichlet_nodes type="matlab" enabled="false">)p
+0 25(            <filename>./config/dirichlet.mat</filename>)p
+0 26(        </dirichlet_nodes>)p
+0 27(    </options>)p
+0 28(</microenvironment_setup>)p
+0 30(<cell_definitions>)p
+0 31(<cell_definition name="default" ID="0">)p
+0 32(    <phenotype>)p
+0 33(        <cycle code="5" name="live">)p
+0 34(            <!-- phases are:live -->)p
+0 35(            <!-- using higher than normal significant digits to match divisions)p
+0 36(in default code -->)p
+0 37(            <!-- use phase_transition_rates OR phase_durations -->)p
+0 38(            <phase_transition_rates units="1/min">)p
+0 39(                <rate start_index="0" end_index="0" fixed_duration="false">0.000)p
+0 40(72</rate>)p
+0 41(            </phase_transition_rates>)p
+0 42(            <!-- use phase_transition_rates OR phase_durations -->)p
+0 43(            <!--)p
+0 44(            <phase_durations units="min">)p
+0 45(                <duration index="0" fixed_duration="false">1389</duration>)p
+0 46(            </phase_durations>)p
+0 47(            -->)p
+0 48(        </cycle>)p
+0 50(        <death>)p
+0 51(            <model code="100" name="apoptosis">)p
+0 52(                <death_rate units="1/min">5.31667e-05</death_rate>)p
+0 53(                <phase_durations units="min">)p
+0 54(                    <duration index="0" fixed_duration="true">516</duration>)p
+0 55(                </phase_durations>)p
+0 56(                <parameters>)p
+0 57(                    <unlysed_fluid_change_rate units="1/min">0.05</unlysed_fluid)p
+0 58(_change_rate>)p
+0 59(                    <lysed_fluid_change_rate units="1/min">0</lysed_fluid_change)p
+0 60(_rate>)p
+0 61(                    <cytoplasmic_biomass_change_rate units="1/min">1.66667e-02</)p
+0 62(cytoplasmic_biomass_change_rate>)p
+0 63(                    <nuclear_biomass_change_rate units="1/min">5.83333e-03</nucl)p
+0 64(ear_biomass_change_rate>)p
+1 0(                    <calcification_rate units="1/min">0</calcification_rate>)p
+1 1(                    <relative_rupture_volume units="dimensionless">2.0</relative)p
+1 2(_rupture_volume>)p
+1 3(                </parameters>)p
+1 4(            </model>)p
+1 6(            <model code="101" name="necrosis">)p
+1 7(                <death_rate units="1/min">0.0</death_rate>)p
+1 8(                <phase_durations units="min">)p
+1 9(                    <duration index="0" fixed_duration="true">0</duration>)p
+1 10(                    <duration index="1" fixed_duration="true">86400</duration>)p
+1 11(                </phase_durations>)p
+1 13(                <parameters>)p
+1 14(                    <unlysed_fluid_change_rate units="1/min">0.05</unlysed_fluid)p
+1 15(_change_rate>)p
+1 16(                    <lysed_fluid_change_rate units="1/min">0</lysed_fluid_change)p
+1 17(_rate>)p
+1 18(                    <cytoplasmic_biomass_change_rate units="1/min">1.66667e-02</)p
+1 19(cytoplasmic_biomass_change_rate>)p
+1 20(                    <nuclear_biomass_change_rate units="1/min">5.83333e-03</nucl)p
+1 21(ear_biomass_change_rate>)p
+1 22(                    <calcification_rate units="1/min">0</calcification_rate>)p
+1 23(                    <relative_rupture_volume units="dimensionless">2.0</relative)p
+1 24(_rupture_volume>)p
+1 25(                </parameters>)p
+1 26(            </model>)p
+1 27(        </death>)p
+1 29(        <volume>)p
+1 30(            <total units="micron^3">2494</total>)p
+1 31(            <fluid_fraction units="dimensionless">0.75</fluid_fraction>)p
+1 32(            <nuclear units="micron^3">540</nuclear>)p
+1 34(            <fluid_change_rate units="1/min">0.05</fluid_change_rate>)p
+1 35(            <cytoplasmic_biomass_change_rate units="1/min">0.0045</cytoplasmic_b)p
+1 36(iomass_change_rate>)p
+1 37(            <nuclear_biomass_change_rate units="1/min">0.0055</nuclear_biomass_c)p
+1 38(hange_rate>)p
+1 40(            <calcified_fraction units="dimensionless">0</calcified_fraction>)p
+1 41(            <calcification_rate units="1/min">0</calcification_rate>)p
+1 43(            <relative_rupture_volume units="dimensionless">2.0</relative_rupture)p
+1 44(_volume>)p
+1 45(        </volume>)p
+1 47(        <mechanics>)p
+1 48(            <cell_cell_adhesion_strength units="micron/min">0.4</cell_cell_adhes)p
+1 49(ion_strength>)p
+1 50(            <cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_rep)p
+1 51(ulsion_strength>)p
+1 52(            <relative_maximum_adhesion_distance units="dimensionless">1.25</rela)p
+1 53(tive_maximum_adhesion_distance>)p
+1 55(            <options>)p
+1 56(                <set_relative_equilibrium_distance enabled="false" units="dimens)p
+1 57(ionless">1.8</set_relative_equilibrium_distance>)p
+1 58(                <set_absolute_equilibrium_distance enabled="false" units="micron)p
+1 59(">15.12</set_absolute_equilibrium_distance>)p
+1 60(            </options>)p
+1 61(        </mechanics>)p
+1 63(        <motility>)p
+1 64(            <speed units="micron/min">1</speed>)p
+Endpage
+%%Page 5 3
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       3)H
+0 0(            <persistence_time units="min">1</persistence_time>)p
+0 1(            <migration_bias units="dimensionless">.5</migration_bias>)p
+0 3(            <options>)p
+0 4(                <enabled>false</enabled>)p
+0 5(                <use_2D>true</use_2D>)p
+0 6(                <chemotaxis>)p
+0 7(                    <enabled>false</enabled>)p
+0 8(                    <substrate>resource</substrate>)p
+0 9(                    <direction>1</direction>)p
+0 10(                </chemotaxis>)p
+0 11(            </options>)p
+0 12(        </motility>)p
+0 14(        <secretion>)p
+0 15(            <substrate name="resource">)p
+0 16(                <secretion_rate units="1/min">0</secretion_rate>)p
+0 17(                <secretion_target units="substrate density">1</secretion_target>)p
+0 18(                <uptake_rate units="1/min">10</uptake_rate>)p
+0 19(                <net_export_rate units="total substrate/min">0</net_export_rate>)p
+0 20(            </substrate>)p
+0 22(            <substrate name="signal A">)p
+0 23(                <secretion_rate units="1/min">0</secretion_rate>)p
+0 24(                <secretion_target units="substrate density">1</secretion_target>)p
+0 25(                <uptake_rate units="1/min">0</uptake_rate>)p
+0 26(                <net_export_rate units="total substrate/min">0</net_export_rate>)p
+0 27(            </substrate>)p
+0 29(            <substrate name="signal B">)p
+0 30(                <secretion_rate units="1/min">0</secretion_rate>)p
+0 31(                <secretion_target units="substrate density">1</secretion_target>)p
+0 32(                <uptake_rate units="1/min">0</uptake_rate>)p
+0 33(                <net_export_rate units="total substrate/min">0</net_export_rate>)p
+0 34(            </substrate>)p
+0 36(            <substrate name="signal C">)p
+0 37(                <secretion_rate units="1/min">0</secretion_rate>)p
+0 38(                <secretion_target units="substrate density">1</secretion_target>)p
+0 39(                <uptake_rate units="1/min">0</uptake_rate>)p
+0 40(                <net_export_rate units="total substrate/min">0</net_export_rate>)p
+0 41(            </substrate>)p
+0 42(        </secretion>)p
+0 44(        <molecular />)p
+0 45(    </phenotype>)p
+0 46(    <custom_data>)p
+0 47(        <relative_sated_volume units="dimensionless">1.5</relative_sated_volume>)p
+0 48(    </custom_data>)p
+0 49(</cell_definition>)p
+0 51(<cell_definition name="A" ID="1" parent_type="default">)p
+0 52(    <phenotype>)p
+0 53(        <cycle code="5" name="live">)p
+0 54(            <phase_transition_rates units="1/min">)p
+0 55(                <rate start_index="0" end_index="0" fixed_duration="false">0.000)p
+0 56(72</rate>)p
+0 57(            </phase_transition_rates>)p
+0 58(        </cycle>)p
+0 59(        <death>)p
+0 60(            <model code="100" name="apoptosis">)p
+0 61(                <death_rate units="1/min">0.00001</death_rate>)p
+0 62(            </model>)p
+0 64(            <model code="101" name="necrosis">)p
+1 0(                <death_rate units="1/min">0.01</death_rate>)p
+1 1(            </model>)p
+1 2(        </death>)p
+1 3(        <volume>)p
+1 4(        </volume>)p
+1 5(        <mechanics>)p
+1 6(            <cell_cell_adhesion_strength units="micron/min">0.4</cell_cell_adhes)p
+1 7(ion_strength>)p
+1 8(            <cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_rep)p
+1 9(ulsion_strength>)p
+1 10(            <relative_maximum_adhesion_distance units="dimensionless">1.5</relat)p
+1 11(ive_maximum_adhesion_distance>)p
+1 12(            <options>)p
+1 13(                <set_relative_equilibrium_distance enabled="true" units="dimensi)p
+1 14(onless">1.8</set_relative_equilibrium_distance>)p
+1 15(                <set_absolute_equilibrium_distance enabled="false" units="micron)p
+1 16(">15.12</set_absolute_equilibrium_distance>)p
+1 17(            </options>)p
+1 18(        </mechanics>)p
+1 20(        <motility>)p
+1 21(            <speed units="micron/min">0.25</speed>)p
+1 22(            <persistence_time units="min">1</persistence_time>)p
+1 23(            <migration_bias units="dimensionless">.5</migration_bias>)p
+1 25(            <options>)p
+1 26(                <enabled>false</enabled>)p
+1 27(                <chemotaxis>)p
+1 28(                    <enabled>true</enabled>)p
+1 29(                    <substrate>signal B</substrate>)p
+1 30(                    <direction>1</direction>)p
+1 31(                </chemotaxis>)p
+1 32(            </options>)p
+1 33(        </motility>)p
+1 35(        <secretion>)p
+1 36(            <substrate name="signal A">)p
+1 37(                <secretion_rate units="1/min">1</secretion_rate>)p
+1 38(            </substrate>)p
+1 39(        </secretion>)p
+1 41(        <molecular />)p
+1 42(    </phenotype>)p
+1 43(    <custom_data>)p
+1 44(    </custom_data>)p
+1 45(</cell_definition>)p
+1 47(<cell_definition name="B" ID="2" parent_type="default">)p
+1 48(    <phenotype>)p
+1 49(        <cycle code="5" name="live">)p
+1 50(            <phase_transition_rates units="1/min">)p
+1 51(                <rate start_index="0" end_index="0" fixed_duration="false">0.000)p
+1 52(72</rate>)p
+1 53(            </phase_transition_rates>)p
+1 54(        </cycle>)p
+1 55(        <death>)p
+1 56(            <model code="100" name="apoptosis">)p
+1 57(                <death_rate units="1/min">0.00001</death_rate>)p
+1 58(            </model>)p
+1 60(            <model code="101" name="necrosis">)p
+1 61(                <death_rate units="1/min">0.01</death_rate>)p
+1 62(            </model>)p
+1 63(        </death>)p
+1 64(        <volume>)p
+Endpage
+%%Page 7 4
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       4)H
+0 0(        </volume>)p
+0 1(        <mechanics>)p
+0 2(            <cell_cell_adhesion_strength units="micron/min">0.4</cell_cell_adhes)p
+0 3(ion_strength>)p
+0 4(            <cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_rep)p
+0 5(ulsion_strength>)p
+0 6(            <relative_maximum_adhesion_distance units="dimensionless">1.25</rela)p
+0 7(tive_maximum_adhesion_distance>)p
+0 8(            <options>)p
+0 9(                <set_relative_equilibrium_distance enabled="false" units="dimens)p
+0 10(ionless">1.8</set_relative_equilibrium_distance>)p
+0 11(                <set_absolute_equilibrium_distance enabled="false" units="micron)p
+0 12(">15.12</set_absolute_equilibrium_distance>)p
+0 13(            </options>)p
+0 14(        </mechanics>)p
+0 16(        <motility>)p
+0 17(            <speed units="micron/min">0.25</speed>)p
+0 18(            <persistence_time units="min">1</persistence_time>)p
+0 19(            <migration_bias units="dimensionless">.5</migration_bias>)p
+0 21(            <options>)p
+0 22(                <enabled>false</enabled>)p
+0 23(                <chemotaxis>)p
+0 24(                    <enabled>true</enabled>)p
+0 25(                    <substrate>signal C</substrate>)p
+0 26(                    <direction>1</direction>)p
+0 27(                </chemotaxis>)p
+0 28(            </options>)p
+0 29(        </motility>)p
+0 31(        <secretion>)p
+0 32(            <substrate name="signal B">)p
+0 33(                <secretion_rate units="1/min">1</secretion_rate>)p
+0 34(            </substrate>)p
+0 35(        </secretion>)p
+0 37(        <molecular />)p
+0 38(    </phenotype>)p
+0 39(    <custom_data>)p
+0 40(    </custom_data>)p
+0 41(</cell_definition>)p
+0 43(<cell_definition name="C" ID="3" parent_type="default">)p
+0 44(    <phenotype>)p
+0 45(        <cycle code="5" name="live">)p
+0 46(            <phase_transition_rates units="1/min">)p
+0 47(                <rate start_index="0" end_index="0" fixed_duration="false">0.000)p
+0 48(72</rate>)p
+0 49(            </phase_transition_rates>)p
+0 50(        </cycle>)p
+0 51(        <death>)p
+0 52(            <model code="100" name="apoptosis">)p
+0 53(                <death_rate units="1/min">0.00001</death_rate>)p
+0 54(            </model>)p
+0 56(            <model code="101" name="necrosis">)p
+0 57(                <death_rate units="1/min">0.01</death_rate>)p
+0 58(            </model>)p
+0 59(        </death>)p
+0 60(        <volume>)p
+0 61(        </volume>)p
+0 62(        <mechanics>)p
+0 63(            <cell_cell_adhesion_strength units="micron/min">0.4</cell_cell_adhes)p
+0 64(ion_strength>)p
+1 0(            <cell_cell_repulsion_strength units="micron/min">10.0</cell_cell_rep)p
+1 1(ulsion_strength>)p
+1 2(            <relative_maximum_adhesion_distance units="dimensionless">1.25</rela)p
+1 3(tive_maximum_adhesion_distance>)p
+1 4(            <options>)p
+1 5(                <set_relative_equilibrium_distance enabled="false" units="dimens)p
+1 6(ionless">1.8</set_relative_equilibrium_distance>)p
+1 7(                <set_absolute_equilibrium_distance enabled="false" units="micron)p
+1 8(">15.12</set_absolute_equilibrium_distance>)p
+1 9(            </options>)p
+1 10(        </mechanics>)p
+1 12(        <motility>)p
+1 13(            <speed units="micron/min">0.25</speed>)p
+1 14(            <persistence_time units="min">1</persistence_time>)p
+1 15(            <migration_bias units="dimensionless">.5</migration_bias>)p
+1 17(            <options>)p
+1 18(                <enabled>false</enabled>)p
+1 19(                <chemotaxis>)p
+1 20(                    <enabled>true</enabled>)p
+1 21(                    <substrate>signal A</substrate>)p
+1 22(                    <direction>1</direction>)p
+1 23(                </chemotaxis>)p
+1 24(            </options>)p
+1 25(        </motility>)p
+1 27(        <secretion>)p
+1 28(            <substrate name="signal C">)p
+1 29(                <secretion_rate units="1/min">1</secretion_rate>)p
+1 30(            </substrate>)p
+1 31(        </secretion>)p
+1 33(        <molecular />)p
+1 34(    </phenotype>)p
+1 35(    <custom_data>)p
+1 36(    </custom_data>)p
+1 37(</cell_definition>)p
+1 39(</cell_definitions>)p
+1 41(<user_parameters>)p
+1 42(    <random_seed type="int" units="dimensionless">0</random_seed>)p
+1 43(    <!-- example parameters from the template -->)p
+1 45(    <div_initialization type="divider" description="---Initialization settings--)p
+1 46(-"/>)p
+1 48(    <number_of_A type="int" units="none" description="initial number of A">25</n)p
+1 49(umber_of_A>)p
+1 50(    <number_of_B type="int" units="none" description="initial number of B">25</n)p
+1 51(umber_of_B>)p
+1 52(    <number_of_C type="int" units="none" description="initial number of C">25</n)p
+1 53(umber_of_C>)p
+1 54(    <max_distance_from_origin type="double" units="micron" description="max init)p
+1 55(ial distance of cells from \(0,0,0\)">150</max_distance_from_origin>)p
+1 57(    <div_coloring type="divider" description="---Coloring settings---"/>)p
+1 59(    <A_color type="string" description="color for A cells">magenta</A_color>)p
+1 60(    <B_color type="string" description="color for B cells">green</B_color>)p
+1 61(    <C_color type="string" description="color for C cells">cyan</C_color>)p
+1 63(    <standard_plots type="bool" description="Enable additional standard plots?">)p
+1 64(true</standard_plots>)p
+Endpage
+%%Page 9 5
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       5)H
+0 1(    <div_signaling type="divider" description="---Overall signaling settings---")p
+0 2(/>)p
+0 3(    <hill_power type="double" units="none" description="Hill power for signal re)p
+0 4(sponses">5</hill_power> <!-- 2 -->)p
+0 5(    <half_max type="double" units="none" description="half max for signal respon)p
+0 6(ses">0.1</half_max> <!-- .25 -->)p
+0 8(    <div_A type="divider" description="---cell type A settings---"/>)p
+0 9(    <!-- cycling -->)p
+0 10(    <A_base_cycle type="double" description="base cell cycling rate for type A")p
+0 11(units="1/min">0.00072</A_base_cycle>)p
+0 12(    <A_max_cycle type="double" description="maximum cell cycling rate for type A)p
+0 13(" units="1/min">0.0072</A_max_cycle>)p
+0 14(    <A_cycle_A type="string" description="impact of signal A on A cycling \(promo)p
+0 15(te, inhibit, or neutral\)">neutral</A_cycle_A>)p
+0 16(    <A_cycle_B type="string" description="impact of signal B on A cycling \(promo)p
+0 17(te, inhibit, or neutral\)">neutral</A_cycle_B>)p
+0 18(    <A_cycle_C type="string" description="impact of signal C on A cycling \(promo)p
+0 19(te, inhibit, or neutral\)">neutral</A_cycle_C>)p
+0 20(    <A_cycle_pressure_threshold type="double" description="pressure above thresh)p
+0 21(old inhibits A cycling">2.0</A_cycle_pressure_threshold>)p
+0 23(    <!-- death -->)p
+0 24(    <A_base_death type="double" description="base cell death rate for type A" un)p
+0 25(its="1/min">5.31667e-05</A_base_death>)p
+0 26(    <A_max_death type="double" description="maximum cell death rate for type A")p
+0 27(units="1/min">5.31667e-04</A_max_death>)p
+0 28(    <A_death_A type="string" description="impact of signal A on A apoptosis \(pro)p
+0 29(mote, inhibit, or neutral">neutral</A_death_A>)p
+0 30(    <A_death_B type="string" description="impact of signal B on A apoptosis \(pro)p
+0 31(mote, inhibit, or neutral">neutral</A_death_B>)p
+0 32(    <A_death_C type="string" description="impact of signal C on A apoptosis \(pro)p
+0 33(mote, inhibit, or neutral">neutral</A_death_C>)p
+0 34(    <A_death_R type="string" description="impact of resource on A apoptosis \(pro)p
+0 35(mote, inhibit, or neutral">neutral</A_death_R>)p
+0 36(    <A_apoptosis_pressure_threshold type="double" description="pressure above th)p
+0 37(reshold triggers apoptosis">100.0</A_apoptosis_pressure_threshold>)p
+0 39(    <A_necrosis_threshold type="double" description="necrosis of A cells begins)p
+0 40(below this resource threshold">0.4</A_necrosis_threshold>)p
+0 42(    <!-- speed -->)p
+0 43(    <A_base_speed type="double" description="base speed for type A" units="micro)p
+0 44(n/min">0.1</A_base_speed>)p
+0 45(    <A_max_speed type="double" description="maximum speed for type A" units="mic)p
+0 46(ron/min">1</A_max_speed>)p
+0 47(    <A_speed_A type="string" description="impact of signal A on A motility \(prom)p
+0 48(ote, inhibit, or neutral">neutral</A_speed_A>)p
+0 49(    <A_speed_B type="string" description="impact of signal B on A motility \(prom)p
+0 50(ote, inhibit, or neutral">neutral</A_speed_B>)p
+0 51(    <A_speed_C type="string" description="impact of signal C on A motility \(prom)p
+0 52(ote, inhibit, or neutral">neutral</A_speed_C>)p
+0 53(    <A_speed_R type="string" description="impact of resource on A motility \(prom)p
+0 54(ote, inhibit, or neutral">neutral</A_speed_R>)p
+0 56(    <!-- secretion -->)p
+0 57(    <A_base_secretion type="double" description="base secretion rate of signal A)p
+0 58( by type A" units="1/min">1</A_base_secretion>)p
+0 59(    <A_max_secretion type="double" description="max secretion rate of signal A b)p
+0 60(y type A" units="1/min">10</A_max_secretion>)p
+0 61(    <A_signal_A type="string" description="impact of signal A on A secretion \(pr)p
+0 62(omote, inhibit, or neutral">neutral</A_signal_A>)p
+0 63(    <A_signal_B type="string" description="impact of signal B on A secretion \(pr)p
+0 64(omote, inhibit, or neutral">neutral</A_signal_B>)p
+1 0(    <A_signal_C type="string" description="impact of signal C on A secretion \(pr)p
+1 1(omote, inhibit, or neutral">neutral</A_signal_C>)p
+1 2(    <A_signal_R type="string" description="impact of resource on A secretion \(pr)p
+1 3(omote, inhibit, or neutral">neutral</A_signal_R>)p
+1 6(    <div_B type="divider" description="---cell type B settings---"/>)p
+1 7(    <B_base_cycle type="double" description="base cell cycling rate for type B")p
+1 8(units="1/min">0.00072</B_base_cycle>)p
+1 9(    <B_max_cycle type="double" description="maximum cell cycling rate for type B)p
+1 10(" units="1/min">0.0072</B_max_cycle>)p
+1 11(    <B_cycle_A type="string" description="impact of signal A on B cycling \(promo)p
+1 12(te, inhibit, or neutral\)">neutral</B_cycle_A>)p
+1 13(    <B_cycle_B type="string" description="impact of signal B on B cycling \(promo)p
+1 14(te, inhibit, or neutral\)">neutral</B_cycle_B>)p
+1 15(    <B_cycle_C type="string" description="impact of signal C on B cycling \(promo)p
+1 16(te, inhibit, or neutral\)">neutral</B_cycle_C>)p
+1 17(    <B_cycle_pressure_threshold type="double" description="pressure above thresh)p
+1 18(old inhibits B cycling">2.0</B_cycle_pressure_threshold>)p
+1 20(    <B_base_death type="double" description="base cell death rate for type B" un)p
+1 21(its="1/min">5.31667e-05</B_base_death>)p
+1 22(    <B_max_death type="double" description="maximum cell death rate for type B")p
+1 23(units="1/min">5.31667e-04</B_max_death>)p
+1 24(    <B_death_A type="string" description="impact of signal A on B apoptosis \(pro)p
+1 25(mote, inhibit, or neutral">neutral</B_death_A>)p
+1 26(    <B_death_B type="string" description="impact of signal B on B apoptosis \(pro)p
+1 27(mote, inhibit, or neutral">neutral</B_death_B>)p
+1 28(    <B_death_C type="string" description="impact of signal C on B apoptosis \(pro)p
+1 29(mote, inhibit, or neutral">neutral</B_death_C>)p
+1 30(    <B_death_R type="string" description="impact of resource on B apoptosis \(pro)p
+1 31(mote, inhibit, or neutral">neutral</B_death_R>)p
+1 32(    <B_apoptosis_pressure_threshold type="double" description="pressure above th)p
+1 33(reshold triggers apoptosis">100.0</B_apoptosis_pressure_threshold>)p
+1 35(    <B_necrosis_threshold type="double" description="necrosis of B cells begins)p
+1 36(below this resource threshold">0.4</B_necrosis_threshold>)p
+1 38(    <B_base_speed type="double" description="base speed for type B" units="micro)p
+1 39(n/min">0.1</B_base_speed>)p
+1 40(    <B_max_speed type="double" description="maximum speed for type B" units="mic)p
+1 41(ron/min">1</B_max_speed>)p
+1 42(    <B_speed_A type="string" description="impact of signal A on B motility \(prom)p
+1 43(ote, inhibit, or neutral">neutral</B_speed_A>)p
+1 44(    <B_speed_B type="string" description="impact of signal B on B motility \(prom)p
+1 45(ote, inhibit, or neutral">neutral</B_speed_B>)p
+1 46(    <B_speed_C type="string" description="impact of signal C on B motility \(prom)p
+1 47(ote, inhibit, or neutral">neutral</B_speed_C>)p
+1 48(    <B_speed_R type="string" description="impact of resource on B motility \(prom)p
+1 49(ote, inhibit, or neutral">neutral</B_speed_R>)p
+1 51(    <!-- secretion -->)p
+1 52(    <B_base_secretion type="double" description="base secretion rate of signal B)p
+1 53( by type B" units="1/min">1</B_base_secretion>)p
+1 54(    <B_max_secretion type="double" description="max secretion rate of signal B b)p
+1 55(y type B" units="1/min">10</B_max_secretion>)p
+1 56(    <B_signal_A type="string" description="impact of signal A on B secretion \(pr)p
+1 57(omote, inhibit, or neutral">neutral</B_signal_A>)p
+1 58(    <B_signal_B type="string" description="impact of signal B on B secretion \(pr)p
+1 59(omote, inhibit, or neutral">neutral</B_signal_B>)p
+1 60(    <B_signal_C type="string" description="impact of signal C on B secretion \(pr)p
+1 61(omote, inhibit, or neutral">neutral</B_signal_C>)p
+1 62(    <B_signal_R type="string" description="impact of resource on B secretion \(pr)p
+1 63(omote, inhibit, or neutral">neutral</B_signal_R>)p
+Endpage
+%%Page 11 6
+Startpage
+(/Users/heiland/git/pc4learning/data/celltypes3-orig-hier.xml      Thu Jan 27 16:24:31 2022
+       6)H
+0 0(    <div_C type="divider" description="---cell type C settings---"/>)p
+0 1(    <C_base_cycle type="double" description="base cell cycling rate for type C")p
+0 2(units="1/min">0.00072</C_base_cycle>)p
+0 3(    <C_max_cycle type="double" description="maximum cell cycling rate for type C)p
+0 4(" units="1/min">0.0072</C_max_cycle>)p
+0 5(    <C_cycle_A type="string" description="impact of signal A on C cycling \(promo)p
+0 6(te, inhibit, or neutral\)">neutral</C_cycle_A>)p
+0 7(    <C_cycle_B type="string" description="impact of signal B on C cycling \(promo)p
+0 8(te, inhibit, or neutral\)">neutral</C_cycle_B>)p
+0 9(    <C_cycle_C type="string" description="impact of signal C on C cycling \(promo)p
+0 10(te, inhibit, or neutral\)">neutral</C_cycle_C>)p
+0 11(    <C_cycle_pressure_threshold type="double" description="pressure above thresh)p
+0 12(old inhibits C cycling">2.0</C_cycle_pressure_threshold>)p
+0 14(    <C_base_death type="double" description="base cell death rate for type C" un)p
+0 15(its="1/min">5.31667e-05</C_base_death>)p
+0 16(    <C_max_death type="double" description="maximum cell death rate for type C")p
+0 17(units="1/min">5.31667e-04</C_max_death>)p
+0 18(    <C_death_A type="string" description="impact of signal A on C apoptosis \(pro)p
+0 19(mote, inhibit, or neutral">neutral</C_death_A>)p
+0 20(    <C_death_B type="string" description="impact of signal B on C apoptosis \(pro)p
+0 21(mote, inhibit, or neutral">neutral</C_death_B>)p
+0 22(    <C_death_C type="string" description="impact of signal C on C apoptosis \(pro)p
+0 23(mote, inhibit, or neutral">neutral</C_death_C>)p
+0 24(    <C_death_R type="string" description="impact of resource on C apoptosis \(pro)p
+0 25(mote, inhibit, or neutral">neutral</C_death_R>)p
+0 26(    <C_apoptosis_pressure_threshold type="double" description="pressure above th)p
+0 27(reshold triggers apoptosis">100.0</C_apoptosis_pressure_threshold>)p
+0 29(    <C_necrosis_threshold type="double" description="necrosis of C cells begins)p
+0 30(below this resource threshold">0.4</C_necrosis_threshold>)p
+0 32(    <C_base_speed type="double" description="base speed for type C" units="micro)p
+0 33(n/min">0.1</C_base_speed>)p
+0 34(    <C_max_speed type="double" description="maximum speed for type C" units="mic)p
+0 35(ron/min">1</C_max_speed>)p
+0 36(    <C_speed_A type="string" description="impact of signal A on C motility \(prom)p
+0 37(ote, inhibit, or neutral">neutral</C_speed_A>)p
+0 38(    <C_speed_B type="string" description="impact of signal B on C motility \(prom)p
+0 39(ote, inhibit, or neutral">neutral</C_speed_B>)p
+0 40(    <C_speed_C type="string" description="impact of signal C on C motility \(prom)p
+0 41(ote, inhibit, or neutral">neutral</C_speed_C>)p
+0 42(    <C_speed_R type="string" description="impact of resource on C motility \(prom)p
+0 43(ote, inhibit, or neutral">neutral</C_speed_R>)p
+0 45(    <!-- secretion -->)p
+0 46(    <C_base_secretion type="double" description="base secretion rate of signal C)p
+0 47( by type C" units="1/min">1</C_base_secretion>)p
+0 48(    <C_max_secretion type="double" description="max secretion rate of signal C b)p
+0 49(y type C" units="1/min">10</C_max_secretion>)p
+0 50(    <C_signal_A type="string" description="impact of signal A on C secretion \(pr)p
+0 51(omote, inhibit, or neutral">neutral</C_signal_A>)p
+0 52(    <C_signal_B type="string" description="impact of signal B on C secretion \(pr)p
+0 53(omote, inhibit, or neutral">neutral</C_signal_B>)p
+0 54(    <C_signal_C type="string" description="impact of signal C on C secretion \(pr)p
+0 55(omote, inhibit, or neutral">neutral</C_signal_C>)p
+0 56(    <C_signal_R type="string" description="impact of resource on C secretion \(pr)p
+0 57(omote, inhibit, or neutral">neutral</C_signal_R>)p
+0 59(    <!--- danger zone -->)p
+0 60(    <div_danger type="divider" description="---Danger Zone \(Advanced Settings\)--)p
+0 61(-"/>)p
+0 62(    <dt_diffusion type="double" units="min" description="diffusion time step siz)p
+0 63(e">0.01</dt_diffusion>)p
+0 64(    <dt_mechanics type="double" units="min" description="mechanics time step siz)p
+1 0(e">0.1</dt_mechanics>)p
+1 1(    <dt_phenotype type="double" units="min" description="phenotype time step siz)p
+1 2(e">6</dt_phenotype>)p
+1 3(</user_parameters>)p
+Endpage
+%%Trailer
+PSPend

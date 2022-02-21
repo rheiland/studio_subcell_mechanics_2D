@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/invoke_app "$@" -C "python @tool/bin/studio.py" -t studio_subcell_mechanics_2D -u anaconda3-5.1
