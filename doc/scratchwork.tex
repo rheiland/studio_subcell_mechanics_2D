@@ -1,0 +1,94 @@
+\documentclass[11point]{article}
+
+\usepackage[letterpaper,margin=0.5in]{geometry}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\norm}[1]{ \left|\left|\mathbf{#1} \right|\right|}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\begin{document}
+
+$$\vec{v}_i  = 
+-\sum_{j \ne i } \overbrace{ A_{i,j} \nabla \phi }^\textrm{adhesion}
+-\sum_{j \ne i } \overbrace{ B_{i,j} \nabla \psi  }^{\textrm{repulsion}}
+$$
+
+originally: all agents are same
+$A_{i,j} = A$ for all $i$ and $j$
+
+more recently: soem agents are ``stickier'' than others 
+$A_{i,j}  = \sqrt{ A_i A_j }$ 
+
+newest: subcells prefer sticking to subcells of same cell 
+$$A_{i,j} = \left\{
+\begin{array}{rl}
+\alpha & \textrm{ if } i \textrm{ and } j \textrm{ are same cell} \\
+f\alpha & \textrm{ if } i \textrm{ and } j \textrm{ are not same cell} \\
+\end{array}
+\right. 
+\hspace{0.5in} 
+0 < f < 1 
+$$
+
+more newest: subcells prefer sticking to subcells of same cell of same type
+$$A_{i,j} = \left\{
+\begin{array}{rl}
+\alpha & \textrm{ if } i \textrm{ and } j \textrm{ are same cell} \\
+f_1 \alpha & \textrm{ if } i \textrm{ and } j \textrm{ are not same cell but same type} \\
+f_1 f_2 \alpha & \textrm{ if } i \textrm{ and } j \textrm{ are not same cell, and are different type} 
+\end{array}
+\right. 
+\hspace{0.5in} 
+0 < f_1 < 1 , 0 < f_2 < 1 
+$$
+
+$$
+\nabla \phi (\vec{r} )  = \left( 1 - \frac{ \norm{r} }{ R_A} \right)^{n+1} \frac{ \vec{r}}{ \norm{r}} 
+$$
+
+$n =1$ 
+
+\verb|https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3322268/|
+
+\subsection{Cell to membrane, distance-based}
+Suppose cell $i$ has  formed a string link at position $\vec{x}_B$. Let: 
+
+$$
+\vec{d} = \vec{x}_B  - \vec{x}_i 
+$$
+
+$$
+\vec{v}_i = \cdots + s_i  \norm{d}  \frac{ \vec{d}}{\norm{d}+\epsilon} + \textrm{ repulsion }
+$$
+
+$$
+\vec{v}_i = \cdots + s_i  \vec{d} + \textrm{ repulsion }
+$$
+
+\subsubsection{alternative form}
+Let $R_i$ (cell radius) be the ``resting length'' of the spring. 
+
+$$
+\vec{v}_i = \cdots + s_i \left(  \norm{d}  - R_i \right) \frac{ \vec{d}}{\norm{d}+\epsilon} 
++ \textrm{ repulsion } 
+$$
+
+\subsection{ membrane repulsion} 
+Let $d$ be the signed distance function, and $\nabla{ d} = \vec{n}$ be the unit normal, pointing into the lumen. 
+
+$d > 0$ on the ``lumen'' side, and $d < 0$ on the stroma side. 
+
+$$\vec{v}_i = \cdots + \left(  1 - \frac{ d}{R_i } \right)^{m+1} \frac{d}{\abs{d}+\epsilon} \vec{n}.$$
+
+$m =0$? 
+
+
+\verb|https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005991|
+
+
+
+
+
+
+
+\end{document}
