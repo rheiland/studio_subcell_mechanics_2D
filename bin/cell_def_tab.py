@@ -19,7 +19,7 @@ class QHLine(QFrame):
         self.setFrameShape(QFrame.HLine)
         self.setFrameShadow(QFrame.Sunken)
 
-# Overloading the QLineEdit widget to let us map it to its variable name. Ugh.
+# Overloading the QLineEdit widget to let us map it to its variable name. Ugh
 class MyQLineEdit(QLineEdit):
     vname = None
     idx = None  # index
@@ -43,7 +43,7 @@ class CellDef(QWidget):
         self.units_width = 70
         self.idx_current_cell_def = 1    # 1-offset for XML (ElementTree, ET)
         self.xml_root = None
-        self.debug_print_fill_xml = False
+        self.debug_print_fill_xml = True
         self.custom_data_count = 0
         self.max_custom_data_rows = 99
         self.max_entries = self.max_custom_data_rows
@@ -5612,6 +5612,7 @@ class CellDef(QWidget):
     def fill_xml_custom_data(self, custom_data, cdef):
         if self.debug_print_fill_xml:
             print("------------------- fill_xml_custom_data():  self.custom_data_count = ", self.custom_data_count)
+            print("------ previous:")
             print(self.param_d[cdef]['custom_data'])
 				# <receptor units="dimensionless">1.0</receptor>
 				# <cargo_release_o2_threshold units="mmHg">10</cargo_release_o2_threshold>
@@ -5623,10 +5624,13 @@ class CellDef(QWidget):
         for idx in range(len(self.param_d[cdef]['custom_data'])):
             name = self.custom_data_name[idx].text()
             value = self.custom_data_value[idx].text()
+            self.param_d[cdef]['custom_data'][name] = value
+
             units = self.custom_data_units[idx].text()
             desc = self.custom_data_description[idx].text()
             if self.debug_print_fill_xml:
                 print(idx,name,value,units,desc)
+
 
             elm = ET.SubElement(custom_data, name,
                     { "units":units,
@@ -5634,6 +5638,9 @@ class CellDef(QWidget):
 
             elm.text = self.param_d[cdef]['custom_data'][name]  # value for this var for this cell def
             elm.tail = self.indent10
+
+        print("\n------ updated cell_def custom_data:")
+        print(self.param_d[cdef]['custom_data'])
 
         elm.tail = self.indent8   # back up 2 for the very last one
 
