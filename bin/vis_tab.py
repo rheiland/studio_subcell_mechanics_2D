@@ -1215,6 +1215,7 @@ class Vis(QWidget):
             try:
                 # plt.scatter(xvals,yvals, s=markers_size, c=rgbs, edgecolor='black', linewidth=0.5)
                 # self.circles(xvals,yvals, s=rvals, color=rgbas, alpha=self.alpha, edgecolor='black', linewidth=0.5)
+                # print("--- plotting circles with edges!!")
                 self.circles(xvals,yvals, s=rvals, color=rgbas, edgecolor='black', linewidth=0.5)
                 # cell_circles = self.circles(xvals,yvals, s=rvals, color=rgbs, edgecolor='black', linewidth=0.5)
                 # plt.sci(cell_circles)
@@ -1223,6 +1224,7 @@ class Vis(QWidget):
         else:
             # plt.scatter(xvals,yvals, s=markers_size, c=rgbs)
             # self.circles(xvals,yvals, s=rvals, color=rgbas, alpha=self.alpha)
+            # print("--- plotting circles without edges!!")
             self.circles(xvals,yvals, s=rvals, color=rgbas)
 
         self.ax0.set_aspect(1.0)

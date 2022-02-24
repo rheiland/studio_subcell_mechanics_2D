@@ -232,7 +232,7 @@ class PhysiCellXMLCreator(QWidget):
             self.vis_tab.fill_substrates_combobox(self.celldef_tab.substrate_list)
             # self.vis_tab.substrates_cbox_changed_cb(2)   # doesn't accomplish it; need to set index, but not sure when
             self.vis_tab.init_plot_range(self.config_tab)
-            self.vis_tab.show_edge = False
+            # self.vis_tab.show_edge = False
 
         vlayout.addWidget(self.tabWidget)
         # self.addTab(self.sbml_tab,"SBML")
@@ -513,117 +513,6 @@ class PhysiCellXMLCreator(QWidget):
             print("config_file = ",config_file)
             self.run_tab.exec_name.setText(exec_pgm)
             self.run_tab.config_xml_name.setText(config_file)
-
-    def biorobots_cb(self):
-        print("\n\n\n================ copy/load sample ======================================")
-        os.chdir(self.homedir)
-        name = "biorobots_flat"
-        # sample_file = Path("data", name + ".xml")
-        sample_file = Path(self.absolute_data_dir, name + ".xml")
-        copy_file = "copy_" + name + ".xml"
-        shutil.copy(sample_file, copy_file)
-
-        # self.add_new_model(copy_file, True)
-        # self.config_file = "config_samples/" + name + ".xml"
-        self.config_file = copy_file
-        # self.show_sample_model()
-        # self.run_tab.exec_name.setText('../biorobots')
-
-        try:
-            print("biorobots_cb():------------- copying ",sample_file," to ",copy_file)
-            shutil.copy(sample_file, copy_file)
-        except:
-            print("biorobots_cb(): Unable to copy file(1).")
-            sys.exit(1)
-
-        try:
-            print("biorobots_cb():------------- copying ",sample_file," to config.xml")
-            shutil.copy(sample_file, "config.xml")
-        except:
-            print("biorobots_cb(): Unable to copy file(2).")
-            sys.exit(1)
-
-        self.add_new_model(copy_file, True)
-        self.config_file = copy_file
-        print("biorobots_cb:   self.config_file = ",self.config_file)
-
-        self.show_sample_model()
-        if self.nanohub_flag:
-            self.run_tab.exec_name.setText('biorobots')
-        else:
-            self.run_tab.exec_name.setText('../biorobots')
-        self.vis_tab.show_edge = False
-        self.vis_tab.bgcolor = [1,1,1,1]
-
-
-    def celltypes3_cb(self):
-        print("\n\n\n================ copy/load sample ======================================")
-        os.chdir(self.homedir)
-        # name = "celltypes3_flat-with-default-celldef"
-        name = "celltypes3_flat"
-        # sample_file = Path("data", name + ".xml")
-        sample_file = Path(self.absolute_data_dir, name + ".xml")
-        copy_file = "copy_" + name + ".xml"
-        try:
-            print("celltypes3_cb():------------- copying ",sample_file," to ",copy_file)
-            shutil.copy(sample_file, copy_file)
-        except:
-            print("celltypes3_cb(): Unable to copy file(1).")
-            sys.exit(1)
-
-        try:
-            print("celltypes3_cb():------------- copying ",sample_file," to config.xml")
-            shutil.copy(sample_file, "config.xml")
-        except:
-            print("celltypes3_cb(): Unable to copy file(2).")
-            sys.exit(1)
-
-        self.add_new_model(copy_file, True)
-        self.config_file = copy_file
-        print("celltypes3_cb:   self.config_file = ",self.config_file)
-
-        self.show_sample_model()
-        if self.nanohub_flag:
-            self.run_tab.exec_name.setText('celltypes3')
-        else:
-            self.run_tab.exec_name.setText('../celltypes3')
-        self.vis_tab.show_edge = True
-        self.vis_tab.bgcolor = [0,0,0,1]
-
-
-    def pred_prey_cb(self):
-        os.chdir(self.homedir)
-        name = "pred_prey_flat"
-        # sample_file = Path("data", name + ".xml")
-        sample_file = Path(self.absolute_data_dir, name + ".xml")
-        copy_file = "copy_" + name + ".xml"
-        try:
-            print("pred_prey_cb():------------- copying ",sample_file," to ",copy_file)
-            shutil.copy(sample_file, copy_file)
-        except:
-            print("pred_prey_cb(): Unable to copy file(1).")
-            sys.exit(1)
-
-        try:
-            print("pred_prey_cb():------------- copying ",sample_file," to config.xml")
-            shutil.copy(sample_file, "config.xml")
-        except:
-            print("pred_prey_cb(): Unable to copy file(2).")
-            sys.exit(1)
-
-        self.add_new_model(copy_file, True)
-        self.config_file = copy_file
-        print("pred_prey_cb:   self.config_file = ",self.config_file)
-
-        self.show_sample_model()
-        if self.nanohub_flag:
-            self.run_tab.exec_name.setText('pred_prey')
-        else:
-            self.run_tab.exec_name.setText('../pred_prey')
-        self.vis_tab.show_edge = True
-        self.vis_tab.bgcolor = [1,1,1,1]
-        # self.vis_tab.reset_model()
-
 
 def main():
     inputfile = ''
