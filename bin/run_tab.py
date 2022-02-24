@@ -32,9 +32,11 @@ class RunModel(QWidget):
         #-------------------------------------------
         # used with nanoHUB app
         # self.nanohub = True
-        self.tree = None
         # following set in studio.py
         self.homedir = ''   
+        # self.config_file = None
+        self.tree = None
+
         self.config_tab = None
         self.microenv_tab = None
         self.celldef_tab = None
@@ -42,8 +44,8 @@ class RunModel(QWidget):
 
         #-----
         self.vis_tab = None
-
         self.sim_output = QWidget()
+
         self.main_layout = QVBoxLayout()
 
         self.scroll = QScrollArea()
@@ -114,6 +116,17 @@ class RunModel(QWidget):
         self.layout.addWidget(self.scroll)
 
 #------------------------------
+    def update_xml_from_gui(self):
+        self.xml_root = self.tree.getroot()
+        self.config_tab.xml_root = self.xml_root
+        self.microenv_tab.xml_root = self.xml_root
+        self.celldef_tab.xml_root = self.xml_root
+        self.user_params_tab.xml_root = self.xml_root
+
+        self.config_tab.fill_xml()
+        self.microenv_tab.fill_xml()
+        self.celldef_tab.fill_xml()
+        self.user_params_tab.fill_xml()
         
     def message(self, s):
         self.text.appendPlainText(s)
@@ -141,12 +154,15 @@ class RunModel(QWidget):
             # new_config_file = "tmpdir/config.xml"  # use Path; work on Windows?
             tdir = os.path.abspath('tmpdir')
             new_config_file = Path(tdir,"config.xml")
+
+            self.update_xml_from_gui()
+
             # write_config_file(new_config_file)  
             # update the .xml config file
-            self.config_tab.fill_xml()
-            self.microenv_tab.fill_xml()
-            self.celldef_tab.fill_xml()
-            self.user_params_tab.fill_xml()
+            # self.config_tab.fill_xml()
+            # self.microenv_tab.fill_xml()
+            # self.celldef_tab.fill_xml()
+            # self.user_params_tab.fill_xml()
             print("\n\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print("run_tab.py: ----> writing modified model to ",new_config_file)
             self.tree.write(new_config_file)  # saves modified XML to tmpdir/config.xml 

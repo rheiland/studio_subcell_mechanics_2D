@@ -5608,8 +5608,69 @@ class CellDef(QWidget):
 
 
     #-------------------------------------------------------------------
-    # Read values from the GUI widgets and generate/write a new XML
+    # Get values from the dict and generate/write a new XML
     def fill_xml_custom_data(self, custom_data, cdef):
+        if self.debug_print_fill_xml:
+            print("------------------- fill_xml_custom_data():  self.custom_data_count = ", self.custom_data_count)
+            print("------ ['custom_data']: for ",cdef)
+            print(self.param_d[cdef]['custom_data'])
+				# <receptor units="dimensionless">1.0</receptor>
+				# <cargo_release_o2_threshold units="mmHg">10</cargo_release_o2_threshold>
+
+                # --------- update_custom_data_params():  self.param_d[cdname]['custom_data'] =  {'receptor': '1.0', 'cargo_release_o2_threshold': '10', 'damage_rate': '0.03333', 'repair_rate': '0.004167', 'drug_death_rate': '0.004167', 'damage': '0.0'}
+
+            # print("values from GUI tab:")
+        # for idx in range(self.custom_data_count):
+        # for idx in range(len(self.param_d[cdef]['custom_data'])):
+        idx = 0
+        for key_name in self.param_d[cdef]['custom_data'].keys():
+            # name = self.custom_data_name[idx].text()
+            # value = self.custom_data_value[idx].text()
+            # self.param_d[cdef]['custom_data'][name] = value
+
+            # What happens if a crazed user changes the units or description for different cell_types?
+            # units = self.custom_data_units[idx].text()
+            # desc = self.custom_data_description[idx].text()
+            units = self.custom_data_units[idx].text()
+            desc = self.custom_data_description[idx].text()
+            idx += 1
+
+            # if self.debug_print_fill_xml:
+                # print(idx,name,value,units,desc)
+
+
+            elm = ET.SubElement(custom_data, key_name, 
+                    { "units":units,
+                      "description":desc } )
+
+            elm.text = self.param_d[cdef]['custom_data'][key_name]  # value for this var for this cell def
+            elm.tail = self.indent10
+
+        # print("\n------ updated cell_def custom_data:")
+        # print(self.param_d[cdef]['custom_data'])
+
+        elm.tail = self.indent8   # back up 2 for the very last one
+
+        # for key in self.param_d[cdef]['custom_data'].keys():  # get name of custom data var
+        #     print("    key=",key,",  len(key)=",len(key))
+        #     # vname = self.custom_data_name[idx].text()
+        #     # if vname:
+        #     if len(key) > 0:
+        #         idx = self.master_custom_varname.index(key)
+        #         print('idx=',idx)
+        #         units = self.custom_data_units[idx].text()
+        #         desc = self.custom_data_description[idx].text()
+        #         elm = ET.SubElement(custom_data, key,
+        #             { "units":units,
+        #               "description":desc } )
+
+        #         elm.text = self.param_d[cdef]['custom_data'][key]
+        #         elm.tail = self.indent10
+        if self.debug_print_fill_xml:
+            print('\n')
+    #-------------------------------------------------------------------
+    # Read values from the GUI widgets and generate/write a new XML
+    def OLD_fill_xml_custom_data(self, custom_data, cdef):
         if self.debug_print_fill_xml:
             print("------------------- fill_xml_custom_data():  self.custom_data_count = ", self.custom_data_count)
             print("------ previous:")
