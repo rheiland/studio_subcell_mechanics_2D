@@ -2992,21 +2992,21 @@ class CellDef(QWidget):
 
 
     # --- custom data (rwh: OMG, this took a lot of time to solve!)
-    def custom_data_value_changed(self, text):
-        print("--------- custom_data_tab(): custom_data_value_changed() --------")
-        # print("self.sender() = ", self.sender())
-        vname = self.sender().vname.text()
-        idx = self.sender().idx
-        print(" vname = ", vname)
-        print(" idx = ", idx)
-        if idx == None:
-            print("None --> return")
-            return
-        print(" custom_data_value_changed(): text = ", text)
+    # def custom_data_value_changed(self, text):
+    #     print("--------- custom_data_tab(): custom_data_value_changed() --------")
+    #     # print("self.sender() = ", self.sender())
+    #     vname = self.sender().vname.text()
+    #     idx = self.sender().idx
+    #     print(" vname = ", vname)
+    #     print(" idx = ", idx)
+    #     if idx == None:
+    #         print("None --> return")
+    #         return
+    #     print(" custom_data_value_changed(): text = ", text)
 
-        self.param_d[self.current_cell_def]['custom_data'][vname] = text
-        # self.param_d[self.current_cell_def]['cycle_choice_idx'] = idx
-        # print()
+    #     self.param_d[self.current_cell_def]['custom_data'][vname] = text
+    #     # self.param_d[self.current_cell_def]['cycle_choice_idx'] = idx
+    #     # print()
 
     #--------------------------------------------------------
     # TODO: fix this; not working yet (and not called)
